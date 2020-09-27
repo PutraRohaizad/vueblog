@@ -1,39 +1,34 @@
 <template>
   <div class="container">
-    <!-- Search filter -->
-      <Search></Search>
+    <h2 class="text-center"><u>MyVueBlog</u></h2>
+
     <!-- Content -->
-      <Content :contents="contents"></Content>
-    <!-- Controller Crud -->
-    <Controller></Controller>
+    <Content :contents="contents" />
   </div>
 </template>
 
 <script>
-import Search from './Search'
-import Content from './Content'
-import Controller from './Controller'
+import Content from "./Content";
 
 export default {
-  components:{
-    Search, Content, Controller
+  components: {
+    Content,
   },
-  data(){
+  data() {
     return {
-      contents:[]
-      
-    }
+      contents: [],
+    };
   },
-  created(){
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then(data => this.contents = data)
-    .catch(err => console.log(err))
-  }
+  created() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => (this.contents = data))
+      .catch((err) => console.log(err));
+  },
 
-}
+};
 </script>
 
-<style>
+<style scoped>
 
 </style>
